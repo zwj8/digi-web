@@ -1,0 +1,129 @@
+// 主题颜色
+@color-primary: #0d3ce9;
+@color-light-primary-80: #385ff0;
+@color-light-primary: #E0E8FF;
+@color-footer-bg: #303030;
+@color-gray: #bababa;
+@color-light-gray: #cecece;
+@color-height-light-gray: #f4f4f5;
+@color-light-green: #ceff00;
+@color-light-purple: #e8ebfe;
+
+// 字体大小
+@font-size-basic: 16px;
+@font-size-basic-rem: 16;
+
+// OSS图片前缀
+@oss_prefix: 'https://dk-front.oss-accelerate.aliyuncs.com/';
+
+// 边框颜色
+@color-border-gray: #e7e7e7;
+@color-border-gray-hover: #C0C4CC;
+
+// 主题背景色
+@bg-color: #f6f7ff;
+// 列表背景色
+@bg-list: #f2f2f2;
+
+// table thead 颜色
+@color-table-thead: #F1F1F1;
+
+// 阴影颜色
+@color-shadow: rgba(94, 93, 93, 0.1);
+
+// 透明颜色
+@color-hide: rgba(255, 255, 255, 0);
+
+// 文字颜色
+@color-font-black: #1c1c1d;
+@color-font-primary: #303133;
+@color-font-basic: #606266;
+@color-font-secondary: #909399;
+@color-font-placeholder: #C0C4CC;
+@color-font-white: #FFFFFF;
+
+// 提示颜色
+@color-status-success: #67C23A;
+@color-status-warning: #E6A23C;
+@color-status-error: #F56C6C;
+@color-status-info: #909399;
+
+// 辅助色
+@color-info: #909399;
+@color-success: #67C23A;
+@color-warning: #E6A23C;
+@color-danger: #F56C6C;
+@color-violet: #ae4cd4;
+@color-info-lighter: #A6A9AD;
+@color-success-lighter: #85CE61;
+@color-warning-lighter: #EBB563;
+@color-danger-lighter: #F78989;
+@color-primary-disabled: #A0CFFF;
+@color-info-disabled: #C8C9CC;
+@color-success-disabled: #B3E19D;
+@color-warning-disabled: #F3D19E;
+@color-danger-disabled: #FAB6B6;
+
+// 文字
+@color-text-main: #303133;
+@color-text-normal: #606266;
+@color-text-sub: #939699;
+@color-text-placeholder: #C8C9CC;
+@color-text-stealth: #E0E0E0;
+
+// 边框
+@color-border: #CCC;
+@color-border-1: #DCDFE6;
+@color-border-2: #E4E7ED;
+@color-border-3: #EBEEF5;
+@color-border-4: #F2F6FC;
+
+// 背景
+@color-bg: #F5F5F5;
+@color-bg-darker: #939699;
+@color-bg-lighter: #FAFAFA;
+@color-bg-primary: #D9ECFF;
+@color-bg-sea: #e5effa;
+@color-bg-primary-darker: #C6E2FF;
+@color-bg-primary-darkest: @color-primary-disabled;
+@color-bg-success: #F0F9EB;
+@color-bg-success-darker: #E1F3D8;
+@color-bg-success-darkest: @color-success-disabled;
+@color-bg-warning: #FDF6EC;
+@color-bg-warning-darker: #FAECD8;
+@color-bg-warning-darkest: @color-warning-disabled;
+@color-bg-danger: #FEF0F0;
+@color-bg-danger-darker: #FDE2E2;
+@color-bg-danger-darkest: @color-danger-disabled;
+@color-bg-blue: #ECF5FF;
+
+
+// 常用颜色
+// 灰度
+@color-white: #FFFFFF;
+
+// 滚动条宽度
+@rem: (8 / @remPx);
+@rem-sw: ~'@{rem}rem';
+@scroll-width: @rem-sw;
+
+
+// content 最宽
+@layout-front-max-width: 1920px;
+
+// front layout header 高度
+@layout-front-header-height-rem: 60;
+@rem-lfhh: (@layout-front-header-height-rem / @remPx);
+@layout-front-header-height: ~'@{rem-lfhh}rem';
+// @layout-front-header-height: 60px;
+
+// front layout footer 高度
+@layout-front-footer-height-rem: 451;
+@rem-lffh: (@layout-front-footer-height-rem / @remPx);
+@layout-front-footer-height: ~'@{rem-lffh}rem';
+// @layout-front-footer-height: 451px;
+
+// 全屏最小高度 （减去header）
+@layout-front-height: calc(100vh - @layout-front-header-height);
+// 全屏最小高度 （减去header和footer）
+@layout-front-min-hf-height: calc(100vh - @layout-front-header-height - @layout-front-footer-height);

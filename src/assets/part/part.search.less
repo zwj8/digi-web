@@ -1,0 +1,577 @@
+// 选项背景颜色
+@bg-search-option: #E0E8FF;
+
+@font-form-size-rem: 16;
+@rem-ffs: (@font-form-size-rem / @remPx);
+@font-form-size: ~'@{rem-ffs}rem';
+// @font-form-size: 16px;
+
+@font-tag-selected-rem: 16;
+@rem-fts: (@font-tag-selected-rem / @remPx);
+@font-tag-selected: ~'@{rem-fts}rem';
+// @font-tag-selected: 16px;
+
+@margin-right-rem: 20;
+@rem-mr: (@margin-right-rem / @remPx);
+@margin-right: ~'@{rem-mr}rem';
+// @margin-right: 20px;
+
+.filter-row {
+  .r-padding(30, 0);
+  // padding: 30px 0;
+  .r-margin-bottom(10);
+  // margin-bottom: 10px;
+}
+
+.filter-wrap {
+  &__content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    .r-padding(30, 0);
+    // padding: 30px 0;
+    box-sizing: border-box;
+    .r-margin-bottom(10);
+    // margin-bottom: 10px;
+    margin: 0 auto;
+  }
+}
+
+// Filter 样式
+.filter {
+  .r-padding(10, 0);
+  // padding: 15px 0;
+  .r-height(50);
+
+  &:last-child {
+    .r-padding-bottom(30);
+  }
+
+  // height: 60px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  box-sizing: border-box;
+
+  // 标题
+  &-title {
+    .r-width(120);
+    // width: 110px;
+    box-sizing: border-box;
+    font-weight: bold;
+    .r-margin-right(45);
+    // margin-right: 45px;
+    text-align: right;
+    font-size: @font-form-size;
+  }
+
+  // 每项间隔
+  &-item {
+    margin-right: @margin-right;
+  }
+
+  // 分类 / 自动排序 选项盒子
+  &-option {
+    .r-width((1280 - 165));
+    // width: 100%;
+    display: flex;
+    justify-content: flex-start;
+
+    // 选项
+    &__item {
+      // .r-width(217);
+      // .r-margin-right(60);
+      // margin-right: 60px;
+      .r-height(30);
+      // height: 30px;
+      .r-line-height(30);
+      // line-height: 30px;
+      display: inline-block;
+      position: relative;
+      .r-padding(0, 5);
+      // padding: 0 5px;
+      .pointer;
+      // color: @color-font-placeholder;
+      color: @color-font-basic;
+      font-size: @font-tag-selected;
+
+      // 被选中时的下边框
+      &.active {
+        color: @color-primary;
+      }
+    }
+    
+    // checkbox类型
+    &--checkbox {
+      .r-padding-left(5);
+      .filter-option__item {
+        .r-margin-right(60);
+        width: auto;
+      }
+    }
+
+    // tag 栏
+    &--tags {
+      flex-flow: row wrap;
+      .r-max-height(30);
+      height: auto;
+    }
+  }
+}
+
+// tag
+.tags {
+  .r-padding(10, 0);
+  height: auto;
+  overflow: hidden;
+  .r-padding-left(170);
+  &-items {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+  }
+}
+
+// Select组件
+.se-input-wrap {
+  .r-width(211);
+  .pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+
+  // 边框
+  border: 1px solid @color-border-gray;
+  .r-border-radius(4);
+  transition: border-color ease-in-out .2s;
+  // 鼠标移入，边框效果
+  &:hover {
+    border: 1px solid @color-border-gray-hover;
+  }
+
+
+  // tag标签容器
+  .se-input-box {
+    .r-height(30);
+    // height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .r-padding-left(5);
+    // padding-left: 5px;
+    box-sizing: border-box;
+
+    // 已选项后代替占位文本的提示文本
+    // &__placeholder {
+    //   color: @color-primary;
+    //   position: absolute;
+    //   font-size: 14px;
+    //   font-weight: 400;
+    //   top: -11px;
+    // }
+
+    // 占位文本溢出省略号
+    .placeholder {
+      font-size: @font-form-size;
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    // 选项框末尾的icon容器
+    &__icon {
+      .r-width(40);
+      // width: 40px;
+      text-align: right;
+      flex-shrink: 0;
+      color: @color-font-placeholder;
+      .r-padding-right(3);
+
+      .hover:hover {
+        color: @color-primary;
+      }
+    }
+
+    // 已选列表
+    .tag-box {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      @remVal: (40 / @remPx);
+      @rem: ~'@{remVal}rem';
+      max-width: calc(100% - @rem);
+      width: calc(100% - @rem);
+      overflow: hidden;
+      position: relative;
+
+      // 已选项提示文本
+      &__placeholder {
+        .r-height(16);
+        // height: 20px;
+        display: block;
+        .r-line-height(16);
+        // line-height: 20px;
+        color: @color-primary;
+        .r-margin-right(5);
+        // margin-right: 5px;
+        .r-font-size(16);
+        white-space: nowrap;
+      }
+
+      // 已选项
+      &__item {
+        .no-select;
+        position: relative;
+        display: flex;
+        align-items: center;
+        background: @bg-search-option;
+        color: @color-primary;
+        .r-border-radius(20);
+        // border-radius: 20px;
+        font-size: @font-tag-selected;
+        justify-content: space-between;
+        .r-padding(0, 4);
+        // padding: 0 4px;
+        .r-height(20);
+        // height: 20px;
+        .r-line-height(20);
+        // line-height: 20px;
+        .r-margin-right(5);
+        // margin-right: 5px;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        span {
+          display: inline-block;
+          overflow: hidden;
+          white-space: nowrap;
+          word-break: break-all;
+          text-overflow: ellipsis;
+        }
+
+        i {
+          color: @color-primary;
+          .r-font-size(14);
+          // font-size: 14px;
+          .r-margin-left(3);
+          // margin-left: 3px;
+        }
+      }
+
+      // 当多于1项时显示已选了多少项
+      &__count {
+        color: @color-primary;
+        display: inline-block;
+        .r-font-size(13);
+        // font-size: 13px;
+        .r-height(20);
+        // height: 20px;
+        .r-line-height(20);
+        // line-height: 20px;
+        .r-padding-left(5);
+        // padding-left: 5px;
+      }
+    }
+
+    .arrow {
+      .r-font-size(14);
+      // font-size: 14px;
+      animation-name: toDOWN;
+      animation-duration: 0.5s;
+      color: @color-font-placeholder;
+    }
+
+    .is-up {
+      animation-name: toUP;
+      animation-duration: 0.5s;
+      transform: rotate(-180deg);
+    }
+
+    @keyframes toDOWN {
+      0% {
+        transform: rotate(-180deg);
+      }
+
+      100% {
+        transform: rotate(0);
+      }
+    }
+
+    @keyframes toUP {
+      0% {
+        transform: rotate(0);
+      }
+
+      100% {
+        transform: rotate(-180deg);
+      }
+    }
+
+    // 占位文本样式
+    .placeholder {
+      .no-select;
+      display: inline-block;
+      // .r-height(20);
+      // height: 20px;
+      // .r-line-height(20);
+      // line-height: 20px;
+      color: @color-font-basic;
+      // color: @color-font-placeholder;
+      z-index: 0;
+      font-size: @font-form-size;
+    }
+  }
+
+  // 下拉选项box
+  .se-option-wrap {
+    z-index: 99999;
+    width: 100%;
+    position: absolute;
+    .p2r(top, 45);
+    // top: 45px;
+    .p2r(padding, 3);
+    // padding: 3px;
+    .p2r(max-height, 450);
+    // max-height: 450px;
+    opacity: 0;
+    z-index: 3000;
+    background: #fff;
+    .r-box-shadow(8, 8, 8, 5, @color-shadow);
+    // box-shadow: 8px 8px 5px @color-shadow;
+    border: 1px solid @color-light-gray;
+    .r-border-radius(5);
+    // border-radius: 5px;
+
+    // 搜索栏box
+    .se-option-search {
+      .p2r(padding, 5);
+      // padding: 5px;
+
+      // 输入框样式
+      .el-input {
+        font-size: inherit;
+        /deep/ .el-input__inner {
+          .r-height(40);
+          .r-line-height(40);
+        }
+      }
+    }
+
+    // 选项box
+    .se-option-box {
+      width: 100%;
+      box-sizing: border-box;
+      .p2r(max-height, 400);
+      // max-height: 400px;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      // 分组样式
+      .se-option-group {
+        .r-font-size(13);
+        // font-size: 13px;
+        .p2r(padding, 10);
+        // padding: 10px;
+        border-top: 1px solid @color-border-gray;
+      }
+
+      // 每项样式
+      .se-option-item {
+        .no-select;
+        display: flex;
+        position: relative;
+        align-items: center;
+        .r-height(40);
+        // height: 40px;
+        width: 100%;
+        .r-padding-left(10);
+        // padding-left: 10px;
+        box-sizing: border-box;
+        color: @color-font-basic;
+
+        &:hover {
+          color: @color-primary !important;
+          font-weight: 400;
+          background: @bg-search-option;
+        }
+        // 下拉选项文本
+        &__text {
+          display: inline-block;
+          width: 80%;
+          height: 100%;
+          .r-font-size(16);
+          .r-line-height(40);
+          // line-height: 40px;
+          overflow-x: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        // 下拉选项每项尾部的点
+        &__checkbox {
+          display: inline-block;
+          position: absolute;
+          .p2r(right, 5);
+          .p2r(width, 8);
+          .p2r(height, 8);
+          // right: 5px;
+          // width: 8px;
+          // height: 8px;
+          border-radius: 50%;
+          border: 1px solid @color-primary;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        .r-width(8);
+        // width: 8px;
+        scrollbar-arrow-color: @color-light-purple;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: @color-light-purple;
+      }
+    }
+  }
+
+  // 下拉框展示
+  .is-show {
+    opacity: 100;
+    animation-name: show;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 100;
+    }
+  }
+}
+
+// 选项被选中
+.is-selected {
+  color: @color-primary  !important;
+  font-weight: bold;
+  // 被选中时，选项尾部的圈添加背景色
+  .se-option-item__checkbox {
+    background: @color-primary;
+  }
+}
+
+// 筛选条件底部操作区
+.filter-footer {
+  width: 80%;
+  .r-padding-bottom(20);
+  // padding-bottom: 20px;
+  text-align: right;
+  margin: 0 auto;
+}
+
+// 选项折叠容器
+.collapse-wrap {
+  @cw-rem: 40;
+  @rem-cw: (40 / @remPx);
+  @cw: ~'@{rem-cw}rem';
+  // @cw: 40px;
+  position: relative;
+
+  // 选项容器
+  .collapse-content {
+    transition: all ease-in-out .2s;
+    position: relative;
+    overflow: visible;
+    .p2r(max-width, 1280);
+    margin: 0 auto;
+    max-height: 4000px;
+
+    &.is-collapse {
+      overflow: hidden;
+      max-height: 0;
+      // height: 0;
+    }
+  }
+
+  // 折叠按钮
+  .collapse-btn {
+    .pointer;
+    position: absolute;
+    .p2r(right, 10);
+    // right: 10px;
+    width: @cw;
+    height: calc(@cw / 2);
+    text-align: center;
+    background: #fff;
+    .r-box-shadow(1, 4, 4, 2, @color-shadow);
+    // box-shadow: 1px 4px 4px 2px @color-shadow;
+
+    // icon 样式
+    .icon {
+      color: @color-primary;
+      .r-font-size(25);
+      // font-size: 25px;
+      font-weight: bold;
+      position: relative;
+      top: 0;
+      transform: rotate(0deg);
+      transition: all ease-in-out .2s;
+
+      &.icon-is-collapse {
+        transform: rotate(180deg);
+        .p2r(top, 4);
+        // top: 4px;
+      }
+    }
+
+    // 用after做一个半圆
+    &::after {
+      content: '';
+      display: block;
+      width: @cw;
+      height: calc(@cw / 2);
+      background: #fff;
+      position: absolute;
+      top: calc(@cw / 2);
+      border-bottom-left-radius: @cw;
+      border-bottom-right-radius: @cw;
+      .r-box-shadow(1, 4, 4, 2, @color-shadow);
+      // box-shadow: 1px 4px 4px 2px @color-shadow;
+    }
+  }
+}
+
+// 选项被选中
+.is-selected {
+  color: @color-primary !important;
+  font-weight: bold;
+}
+
+// 筛选条件底部操作区
+.filter-footer {
+  width: 80%;
+  .r-padding-bottom(20);
+  // padding-bottom: 20px;
+  text-align: right;
+  margin: 0 auto;
+}
+
+.el-row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.ad-search-wrap,
+.adver-search-wrap {
+  background: #fff;
+  font-weight: 400;
+  width: 100%;
+}

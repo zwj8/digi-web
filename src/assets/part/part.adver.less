@@ -1,0 +1,103 @@
+.adver-img-wrap,
+.adver-analyse-wrap {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  .btn-analyse {
+    color: @color-primary;
+    cursor: pointer;
+  }
+  img {
+    // .r-width-height(80);
+    // height: 80px;
+    // width: 80px;
+    .r-border-radius(40);
+    // border-radius: 40px;
+    border: 1px solid @color-light-gray;
+  }
+}
+.adver-region-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adver-video-wrap {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  .adver-video {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    .video-cover {
+      position: relative;
+      overflow: hidden;
+      // .r-padding(0, 5);
+      // padding: 0 5px;
+      // .r-width-height(107, 80);
+      width: 107px;
+      height: 80px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .el-image {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        object-fit: cover;
+        .r-font-size(100);
+        // font-size: 100px;
+        color: @color-font-basic;
+      }
+      .el-icon-video-play {
+      // .el-icon-caret-right {
+        // .r-font-size(50);
+        font-size: 50px;
+        position: absolute;
+        top: 20%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: #fff;
+        cursor: pointer;
+      }
+      img {
+        .r-border-radius(10);
+        // border-radius: 10px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      // 视频上遮罩，为了让播放按钮不会融入背景
+      .video-shade {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: rgba(0, 0, 0, .3);
+      }
+    }
+    &:not(:last-child) {
+      .r-margin-right(5);
+    }
+  }
+}
+
+.adver-analyse-wrap {
+  .r-height(60);
+  // height: 60px;
+  justify-content: space-between;
+  .star-icon {
+    .r-font-size(25);
+    // font-size: 25px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,41 @@
+@bg-list: #f2f2f2;
+// 列表
+.list {
+  box-sizing: border-box;
+  .r-padding(40, 0);
+  // padding: 40px 80px;
+  background-color: @bg-list;
+  min-height: @layout-front-min-hf-height;
+  &-box {
+    // max-width: 1280px;
+    // 盒子宽度
+    @box_width: 1560;
+    // 每个 card padding
+    @item_padding: 10;
+    // 每个card宽度
+    @item_width: ((@box_width - (@item_padding * 2 * 4)) / 4);
+    .p2r(max-width, @box_width);
+    margin: 0 auto;
+    .flex-fsc;
+    flex-flow: row wrap;
+    &__item {
+      .p2r(padding, @item_padding);
+      .r-width(@item_width);
+    }
+  }
+}
+
+// 分页
+.pagination-area {
+  .r-margin-top(20);
+  // margin-top: 20px;
+  text-align: center;
+  .r-font-size(14);
+  // font-size: 14px;
+}
+
+// loading
+.list-loading {
+  height: 200px;
+  width: 100%;
+}

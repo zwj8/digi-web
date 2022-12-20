@@ -1,0 +1,225 @@
+@import './variable.less';
+@import './methods.less';
+@import './common/common.scroll.less';
+@import './element-ui.modify.less';
+
+.h1 {
+  font-size: 20px;
+}
+
+.h2 {
+  font-size: 18px;
+}
+
+.h3 {
+  font-size: 16px;
+}
+
+.h4 {
+  font-size: 14px;
+}
+
+.h5 {
+  font-size: 13px;
+}
+
+.hide {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-xs {
+  font-size: 12px;
+}
+
+.text-sm {
+  font-size: 13px;
+}
+
+.text-normal {
+  font-size: 14px;
+}
+
+.text-md {
+  font-size: 16px;
+}
+
+.text-gray {
+  color: @color-font-secondary;
+}
+
+.text-primary {
+  color: @color-primary;
+}
+
+.text-lg {
+  font-size: 18px;
+}
+
+.text-xl {
+  font-size: 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-vc {
+  display: flex;
+  align-items: center;
+}
+
+.flex-sbc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-cc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-fsc {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.full {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+// 列表页面布局
+.layout-table {
+  display: flex;
+}
+
+// 列表页顶部通用样式
+.list-header {
+  background-color: #fff;
+  &__search, &__edit {
+    .r-padding(10, 0);
+    // padding: 10px 0;
+    border-bottom: 1px solid @color-border-gray;
+  }
+  &__edit {
+    text-align: right;
+  }
+}
+
+// 不可选中
+.no-select {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// 文字溢出变省略号
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 收藏的星星颜色
+.el-icon-star-on {
+  color: #eeca00 !important;
+}
+
+// 文字溢出变省略号 (定义显示几行)
+.text-ellipsis-by-value (@colspan) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -webkit-line-clamp: @colspan;
+}
+
+// 用于TT广告、广告主、广告分析、等列表的无搜索结果显示
+.no-data {
+  text-align: center;
+  color: @color-font-placeholder;
+  .r-font-size(20);
+  // font-size: 20px;
+  line-height: @layout-front-min-hf-height;
+  height: @layout-front-min-hf-height;
+  background: #f2f2f2;
+}
+
+// 毛玻璃效果
+.fuzzy-mask {
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
+
+// 鼠标样式
+.pointer {
+  cursor: pointer;
+}
+.not-allowed {
+  cursor: not-allowed;
+}
+
+// 弹窗居中通用样式
+.popup-pulic {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// 最大宽度、最小宽度
+.width-limit {
+  margin: 0 auto;
+  max-width: 1920px;
+  min-width: 1280px;
+}

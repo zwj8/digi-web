@@ -1,0 +1,168 @@
+// px to rem
+@remPx: 16;
+
+.p2r (@attr, @px) {
+  @rem: (@px / @remPx);
+  @{attr}: ~'@{rem}rem';
+}
+// 简单计算 - 减法
+.p2r-calc-reduce(@attr, @l, @r) {
+  @rem: (@r / @remPx);  
+  @rem_r: ~'@{rem}rem';
+  @{attr}: calc(@l - @rem_r);
+}
+// 简单计算 - 加法
+.p2r-calc-add(@attr, @l, @r) {
+  @rem: (@r / @remPx);  
+  @rem_r: ~'@{rem}rem';
+  @{attr}: calc(@l + @rem_r);
+}
+
+// font-size
+.r-font-size (@px) {
+  @rem: (@px / @remPx);
+  font-size: ~'@{rem}rem';
+}
+//right
+.right (@px) {
+  @rem: (@px / @remPx);
+  right: ~'@{rem}rem';
+}
+//top
+.top (@px) {
+  @rem: (@px / @remPx);
+  top: ~'@{rem}rem';
+}
+//bottom
+.bottom (@px) {
+  @rem: (@px / @remPx);
+  bottom: ~'@{rem}rem';
+}
+// height width line-height
+.r-height (@px) {
+  @rem: (@px / @remPx);
+  height: ~'@{rem}rem';
+}
+.r-min-height (@px) {
+  @rem: (@px / @remPx);
+  min-height: ~'@{rem}rem';
+}
+.r-max-height (@px) {
+  @rem: (@px / @remPx);
+  max-height: ~'@{rem}rem';
+}
+.r-line-height (@px) {
+  @rem: (@px / @remPx);
+  line-height: ~'@{rem}rem';
+}
+.r-line-h-height(@px) {
+  @rem: (@px / @remPx);
+  height: ~'@{rem}rem';
+  line-height: ~'@{rem}rem';
+}
+.r-width (@px) {
+  @rem: (@px / @remPx);
+  width: ~'@{rem}rem';
+}
+.r-min-width (@px) {
+  @rem: (@px / @remPx);
+  min-width: ~'@{rem}rem';
+}
+.r-max-width (@px) {
+  @rem: (@px / @remPx);
+  max-width: ~'@{rem}rem';
+}
+.r-width-height(@w, @h:@w) {
+  @rem_w: (@w / @remPx);
+  @rem_h: (@h / @remPx);
+  width: ~'@{rem_w}rem';
+  height: ~'@{rem_h}rem';
+}
+
+// margin
+.r-margin (@tb, @lr:@tb) {
+  @rem_tb: (@tb / @remPx);
+  @rem_lr: (@lr / @remPx);
+  margin: ~'@{rem_tb}rem @{rem_lr}rem';
+}
+.r-margin-top (@px) {
+  @rem: (@px / @remPx);
+  margin-top: ~'@{rem}rem';
+}
+.r-margin-right (@px) {
+  @rem: (@px / @remPx);
+  margin-right: ~'@{rem}rem';
+}
+.r-margin-bottom (@px) {
+  @rem: (@px / @remPx);
+  margin-bottom: ~'@{rem}rem';
+}
+.r-margin-left (@px) {
+  @rem: (@px / @remPx);
+  margin-left: ~'@{rem}rem';
+}
+
+// padding
+.r-padding (@tb, @lr:@tb) {
+  @rem_tb: (@tb / @remPx);
+  @rem_lr: (@lr / @remPx);
+  padding: ~'@{rem_tb}rem @{rem_lr}rem';
+}
+.r-padding-top (@px) {
+  @rem: (@px / @remPx);
+  padding-top: ~'@{rem}rem';
+}
+.r-padding-right (@px) {
+  @rem: (@px / @remPx);
+  padding-right: ~'@{rem}rem';
+}
+.r-padding-bottom (@px) {
+  @rem: (@px / @remPx);
+  padding-bottom: ~'@{rem}rem';
+}
+.r-padding-left (@px) {
+  @rem: (@px / @remPx);
+  padding-left: ~'@{rem}rem';
+}
+
+// border
+.r-border(@px, @attr, @color) {
+  @rem: (@px / @remPx);
+  border: ~'@{rem}rem' @attr @color;
+}
+.r-border-top(@px, @attr, @color) {
+  @rem: (@px / @remPx);
+  border-top: ~'@{rem}rem' @attr @color;
+}
+.r-border-right(@px, @attr, @color) {
+  @rem: (@px / @remPx);
+  border-right: ~'@{rem}rem' @attr @color;
+}
+.r-border-bottom(@px, @attr, @color) {
+  @rem: (@px / @remPx);
+  border-bottom: ~'@{rem}rem' @attr @color;
+}
+.r-border-left(@px, @attr, @color) {
+  @rem: (@px / @remPx);
+  border-left: ~'@{rem}rem' @attr @color;
+}
+
+// border-radius
+.r-border-radius (@px) {
+  @rem: (@px / @remPx);
+  border-radius: ~'@{rem}rem';
+}
+
+// box-shadow
+.r-box-shadow (@t:0, @r:0, @b:10, @l:0, @color:@color-shadow) {
+  @rem-t: (@t / @remPx);
+  @rem-r: (@r / @remPx);
+  @rem-b: (@b / @remPx);
+  @rem-l: (@l / @remPx);
+  box-shadow: ~'@{rem-t}rem @{rem-r}rem @{rem-b}rem @{rem-l}rem @{color}';
+}
+//背景图位移
+.r-background-position (@px, @px) {
+  @rem: (@px / @remPx);
+  background-position: ~'@{rem}rem @{rem}rem';
+}
