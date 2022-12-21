@@ -22,10 +22,16 @@
               <P style="font-size: 26px;">with DigiAds one-stop marketing solution and eCommerce insight tool</P>
             </div>
             <!-- 右侧按钮 已登录就隐藏 -->
-            <div class="bgc-btn-img">
+            <!-- <div class="bgc-btn-img">
               <div class="bgc-img" v-show="!isLogined">
                 <com-btn class="btn-1" type="bg-primary" @click.native="toLogin">SIGN UP FREE</com-btn>
+              </div> -->
+            <!-- 右侧按钮 已登录就隐藏,未登录就显示  -->
+            <div class="bgc-btn-img">
+              <div :class="['bgc-img', `bgc-img-${isLogined ? 'hidden' : 'visible'}`]">
+                <com-btn class="btn-1" type="bg-primary" @click.native="toLogin">SIGN UP FREE</com-btn>
               </div>
+
             </div>
           </div>
         </div>
@@ -205,7 +211,8 @@
                   to jointly build a cross-border ecosystem.</p>
               </div>
               <!-- 登录状态跳视频播放首页 -->
-              <com-btn v-if="isLogined" type="bg-primary" @click.native="$router.push({ name: 'usTutorial' })">WATCH NOW
+              <com-btn v-if="isLogined" type="bg-primary" @click.native="$router.push({ name: 'usTutorial' })">WATCH
+                NOW
                 <i class="el-icon-video-play"></i></com-btn>
               <com-btn v-else type="bg-primary" @click.native="toLogin">SIGN UP FREE</com-btn>
             </div>
@@ -304,6 +311,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
+// import { mapGetters, mapActions } from 'vuex'
 // import BusinessTitle from '@/components/part/BusinessTitle'
 import catuns from '@/components/part/PartFooter2.vue'
 export default {
@@ -322,6 +330,7 @@ export default {
   computed: {
     //用户是否是登录状态
     ...mapGetters('global/auth', ['isLogined'])
+    // ...mapGetters('global/auth', ['isLogined'])
   },
   watch: {},
   created() { },
@@ -374,7 +383,17 @@ export default {
         .r-margin-bottom(126);
 
         .bgc-btn-img {
-          .r-width (540);
+
+          // .r-width (540);
+          .bgc-img-visible {
+            //未登陆,就显示
+            visibility: visible;
+          }
+
+          .bgc-img-hidden {
+            //登陆了,就隐藏
+            visibility: hidden;
+          }
 
           .bgc-img {
 
@@ -385,6 +404,9 @@ export default {
             // height: 100px;
             background-image: radial-gradient(#ceff00 0%, #ceff00 5%, #fff 70%);
           }
+
+
+
         }
 
 
