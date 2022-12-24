@@ -326,3 +326,15 @@ export const INDUSTRY = [
   { label: 'Technology', value: 'Technology' },
   { label: 'Other', value: 'Other' },
 ]
+
+export const HOME_VIDEO = [
+  { h2:'Insight into Your Market and Industry ' ,
+   title:'Access the global TikTok video ad library to discover new trends in your industry before anyone else. Stay on top of your market trends and make smarter decisions.',
+  pic:1
+  },
+
+  { h2: 'Monitor Your Competitors',
+   title:'Find out your competitors’ strategies and investments in TikTok and ROI. Leverage data and unique insights from DigiAds and get a competitive edge achieving measurable results.',
+   pic:2
+  },
+]

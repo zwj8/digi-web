@@ -45,7 +45,7 @@
             <div class="title-left">
               <h3>A TikTok-Focused, Best-in-Class Marketing</h3>
               <h3>Analytics and eCommerce Solution Tool </h3>
-              <div class="group1-title">
+              <div class="group1-title" :class="{ 'active': isMove === true }" @mouseenter="isMove = true">
                 <h4 class="h4-title">Insight into Your Market and Industry</h4>
                 <p>Access the global TikTok video ad library to discover new trends
                 </p>
@@ -53,24 +53,27 @@
                 </p>
                 <p>trends and make smarter decisions.</p>
               </div>
-              <div class="group2-title">
+              <div class="group2-title" :class="{ 'active': isMove === false }" @mouseenter="isMove = false">
                 <h4 class="h4-title">Monitor Your Competitors</h4>
                 <p>Find out your competitors’ strategies and investments in TikTok </p>
                 <p>and ROI. Leverage data and unique insights from DigiAds and </p>
                 <p>get a competitive edge achieving measurable results.</p>
-                <div>
-                  <!-- 已经登陆点击跳到广告搜索 -->
-                  <com-btn v-if="isLogined" class="btn" type="bg-primary"
-                    @click.native="$router.push({ name: 'usAd', })">HAVE A TRY</com-btn>
-                  <!-- 没登录跳登录页面 -->
-                  <com-btn v-else class="btn" type="bg-primary" @click.native="toLogin">SIGN UP FREE</com-btn>
-                </div>
+              </div>
+              <div>
+                <!-- 已经登陆点击跳到广告搜索 -->
+                <com-btn v-if="isLogined" class="btn" type="bg-primary"
+                  @click.native="$router.push({ name: 'usAd', })">HAVE A TRY</com-btn>
+                <!-- 没登录跳登录页面 -->
+                <com-btn v-else class="btn" type="bg-primary" @click.native="toLogin">SIGN UP FREE</com-btn>
               </div>
             </div>
-            <div class="title-right">
-              <img :src="`${OSS_PREFIX}default/us_home_01.png`" class="title-img" />
-
+            <div class="title-right" v-show="isMove === true">
+              <img :src="`${OSS_PREFIX}default/us_home_01.png`" class="img-isMove" />
             </div>
+            <div class="title-right" v-show="isMove === false">
+              <img src="@/assets/us_home_02.png" class="img2-isMove" />
+            </div>696
+
           </div>
           <!-- 筛选表格图片+右侧文案区域 -->
           <div class="table">
@@ -91,13 +94,13 @@
                 <p>Customized data intelligence and analysis dashboard on TikTok. </p>
                 <p>Take the stress out of data processing and analysis and manage </p>
                 <p>all TikTok data with ease.</p>
-                <div>
-                  <!-- 已经登陆点击跳到广告搜索 -->
-                  <com-btn v-if="isLogined" class="btn" type="bg-primary"
-                    @click.native="$router.push({ name: 'usAd', })">HAVE A TRY</com-btn>
-                  <!-- 没登录跳登录页面 -->
-                  <com-btn v-else class="btn" type="bg-primary" @click.native="toLogin">SIGN UP FREE</com-btn>
-                </div>
+              </div>
+              <div>
+                <!-- 已经登陆点击跳到广告搜索 -->
+                <com-btn v-if="isLogined" class="btn" type="bg-primary"
+                  @click.native="$router.push({ name: 'usAd', })">HAVE A TRY</com-btn>
+                <!-- 没登录跳登录页面 -->
+                <com-btn v-else class="btn" type="bg-primary" @click.native="toLogin">SIGN UP FREE</com-btn>
               </div>
             </div>
           </div>
@@ -324,7 +327,7 @@ export default {
   props: {},
   data() {
     return {
-      // isLogined: true
+      isMove: true
     }
   },
   computed: {
@@ -549,14 +552,6 @@ export default {
         // .r-height(480);
         .r-padding-top(60);
 
-        // .r-padding-left(10);
-        .title-img {
-          // .r-width(750);
-          // width: 100%;
-          // height: 100%;
-          .r-margin-top(-40);
-          // margin-top: 60px;
-        }
       }
     }
 
@@ -812,23 +807,15 @@ export default {
       }
     }
 
-    .group1-title {
-      .r-margin-top(40);
-      .r-font-size(30);
-
-      .h4-title {
-        .r-margin-right(20);
-        // margin-top: 20px;
-        .r-line-height(55);
-        // line-height: 55px;
-      }
+    .h4-title {
+      .r-margin-right(20);
+      // margin-top: 20px;
+      .r-line-height(55);
+      // line-height: 55px;
     }
 
-    .group2-title {
-      .r-margin-top(40);
-      // margin-top: 40px;
-      color: #AAAAB0;
-    }
+
+
 
     .commomimg {
       // background-image: url('@/assets/img//us_people_saying_1.png');
@@ -966,6 +953,66 @@ export default {
     .r-line-height(45);
     // border-radius: 6px;
     .r-border-radius(6);
+  }
+}
+
+
+@keyframes scaleDraw {
+
+  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+  0% {
+    transform: scale(0.97);
+    /*开始为原始大小*/
+  }
+
+  50% {
+    transform: scale(1);
+    /*放大1.1倍*/
+  }
+
+}
+
+.img-isMove {
+  .imgismove-all
+}
+
+.imgismove-all {
+  .r-margin-top(-40);
+  -webkit-animation-name: scaleDraw;
+  /*关键帧名称*/
+  -webkit-animation-timing-function: ease-in-out;
+  /*动画的速度曲线*/
+  // -webkit-animation-iteration-count: infinite;
+  /*动画播放的次数*/
+  -webkit-animation-duration: 0.7s;
+  /*动画所花费的时间*/
+}
+
+.img2-isMove {
+  // .r-margin-top(-40);
+  .r-width(650);
+  .imgismove-all
+}
+
+.hover-all {
+  transform: scale(1.05);
+  transition: all 0.35s;
+  color: #282828;
+  cursor: pointer;
+}
+
+.group2-title,
+.group1-title {
+  .r-margin-top(40);
+  .r-font-size(30);
+  color: #AAAAB0;
+
+  &:hover {
+    .hover-all
+  }
+
+  &.active {
+    color: #282828;
   }
 }
 </style>

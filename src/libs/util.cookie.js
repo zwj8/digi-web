@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+ /* eslint-disable no-undef */
 import Cookie from 'js-cookie'
 import { COOKIE_PREFIX } from '@/constants'
 

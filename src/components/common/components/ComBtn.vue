@@ -1,16 +1,10 @@
 <template>
-  <button
-    :disabled='disabled'
-    v-loading="downloading"
-    :class="[
-      'btn',
-      `btn-type-${type}`,
-      `btn-size-${size}`,
-      { 'btn-disabled': disabled }
-    ]"
-    :style="`font-size: ${compFontSize}`"
-    @click="handleClick"
-  >
+  <button :disabled='disabled' v-loading="downloading" :class="[
+    'btn',
+    `btn-type-${type}`,
+    `btn-size-${size}`,
+    { 'btn-disabled': disabled }
+  ]" :style="`font-size: ${compFontSize}`" @click="handleClick">
     <slot />
   </button>
 </template>
@@ -32,27 +26,27 @@ export default {
   },
   components: {},
   filters: {},
-  data () {
+  data() {
     return {
       downloading: false
     }
   },
   computed: {
-    compFontSize () {
+    compFontSize() {
       if (+this.fontSize > 0) return `${+this.fontSize / REM_PX}rem`
       return 'none'
     }
   },
   watch: {},
-  created () { },
-  mounted () { },
+  created() { },
+  mounted() { },
   methods: {
     /**
      * @description: 省去使用组件时添加.native
      * @param {*} evt
      * @return {*}
      */
-    handleClick (evt) {
+    handleClick(evt) {
       this.$emit('click', evt)
       if (this.download) this.downloadFile()
     },
@@ -60,7 +54,7 @@ export default {
      * @description: 文件下载
      * @return {*}
      */
-    downloadFile () {
+    downloadFile() {
       const url = this.download
       const fileName = this.matchFileName(url)
       this.downloading = true
@@ -81,7 +75,7 @@ export default {
       })
     },
     // 匹配文件名
-    matchFileName (url) {
+    matchFileName(url) {
       const reg = /[a-zA-Z0-9]+?\.[mp4|jpg|jpeg|gif|png]+/
       const matList = url.match(reg)
       if (matList.length) return matList[0]
@@ -92,6 +86,7 @@ export default {
 </script>
 <style  lang="less" scoped>
 @border-size: 1px; // 按钮边框
+
 // 按钮样式
 .btn {
   display: inline-block;
@@ -109,6 +104,7 @@ export default {
     color: @color-font-black;
     border: @border-size solid @color-font-black;
     background: transparent;
+
     &:hover {
       transition: all ease-in-out 0.2s;
       color: @color-primary;
@@ -121,6 +117,7 @@ export default {
     color: #fff;
     background: @color-primary;
     border: @border-size solid @color-primary;
+
     &:hover {
       transition: all ease-in-out 0.2s;
       color: @color-primary;
@@ -134,6 +131,7 @@ export default {
     color: #fff;
     background: @color-font-black;
     border: @border-size solid @color-font-black;
+
     &:hover {
       transition: all ease-in-out 0.2s;
       color: @color-font-black;
@@ -147,6 +145,7 @@ export default {
     color: @color-primary;
     background: transparent;
     border: @border-size solid @color-primary;
+
     &:hover {
       transition: all ease-in-out 0.2s;
       color: #fff;
@@ -160,11 +159,31 @@ export default {
     color: @color-font-black;
     background: transparent;
     border: @border-size solid @color-font-black;
+
     &:hover {
       transition: all ease-in-out 0.2s;
       color: #fff;
       border: @border-size solid @color-font-black;
       background: @color-font-black;
+    }
+  }
+
+  // 固定宽度，主题色背景
+  &.btn-type-fixed {
+    width: 320px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    background: @color-primary;
+    border: @border-size solid @color-primary;
+    border-radius: 5px !important;
+    padding: 10px !important;
+    font-size: 25px !important;
+
+    &:hover {
+      transition: all ease-in-out 0.2s;
+      background: @color-light-primary-80;
+      border: @border-size solid @color-light-primary-80;
     }
   }
 
@@ -198,11 +217,13 @@ export default {
   }
 
 }
+
 // 如果前方有按钮，则分隔5px
-.btn + .btn {
+.btn+.btn {
   .r-margin-left(5);
   // margin-left: 5px;
 }
+
 // 按钮禁用
 .btn-disabled {
   opacity: 0.5;
