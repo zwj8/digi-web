@@ -7,6 +7,7 @@
     <footer-layout></footer-layout>
     <part-limit />
     <part-cashier />
+    <Robot></Robot>
   </section>
 </template>
 <script>
@@ -15,6 +16,7 @@ import PartLimit from '@/components/part/PartLimit'
 import { HeaderLayout, FooterLayout } from './components'
 import mixinLang from '@/mixin/layout.lang'
 import store from '@/store'
+import Robot from '@/components/part/PartRobot.vue'
 export default {
   name: 'UsLayout',
   mixins: [mixinLang],
@@ -22,7 +24,8 @@ export default {
     PartCashier,
     PartLimit,
     HeaderLayout,
-    FooterLayout
+    FooterLayout,
+    Robot
   },
   filters: {},
   props: {},
@@ -36,7 +39,7 @@ export default {
     // 设置语言为英文
     this.mixinSetLangEN()
   },
-  mounted () {
+  mounted() {
     store.dispatch('global/locate/setLocate', 'US')
   },
   methods: {}
